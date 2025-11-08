@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOORAH - Account Login</title>
     <style>
+        /* (Style section is skipped here for brevity, but keep it in the code) */
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #000000; color: #ffffff; display: flex; flex-direction: column; min-height: 100vh; }
         .container { flex-grow: 1; width: 90%; max-width: 400px; margin: 50px auto; padding: 20px; background-color: #1a1a1a; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
         .back-link { color: #ffffff; text-decoration: none; display: inline-block; margin-bottom: 20px; font-size: 1.1em; }
@@ -25,7 +26,7 @@
         
         <div class="login-form" id="login">
             <h2>Customer Login (Demo)</h2>
-            <form>
+            <form onsubmit="return false;"> 
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" required>
@@ -34,55 +35,7 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit" class="submit-btn">Login (No Data Saved)</button>
-            </form>
-            <div class="switch-form">
-                Don't have an account? <a href="#" onclick="alert('This feature is for demonstration only. Please use the Order button for now.')">Sign Up</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2025 NOORAH. All Rights Reserved.</p>
-    </div>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOORAH - Account Login</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #000000; color: #ffffff; display: flex; flex-direction: column; min-height: 100vh; }
-        .container { flex-grow: 1; width: 90%; max-width: 400px; margin: 50px auto; padding: 20px; background-color: #1a1a1a; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
-        .back-link { color: #ffffff; text-decoration: none; display: inline-block; margin-bottom: 20px; font-size: 1.1em; }
-        .login-form h2 { text-align: center; margin-bottom: 30px; color: #ffffff; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; color: #ccc; font-size: 0.9em; }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid #333; border-radius: 4px; box-sizing: border-box; background-color: #222; color: #fff; }
-        .submit-btn { width: 100%; padding: 10px; background-color: #ffffff; color: #000000; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 20px; transition: background-color 0.3s; }
-        .switch-form { text-align: center; margin-top: 20px; font-size: 0.9em; }
-        .switch-form a { color: #ffffff; text-decoration: none; }
-        .footer { text-align: center; padding: 20px; border-top: 1px solid #333; margin-top: auto; font-size: 0.8em; color: #777; }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <a href="./index.html" class="back-link">&leftarrow; Back to Store</a>
-        
-        <div class="login-form" id="login">
-            <h2>Customer Login (Demo)</h2>
-            <form onsubmit="return handleLogin(event)">
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="button" onclick="handleLogin()" class="submit-btn">Login</button>
+                <button type="button" onclick="handleLogin()" class="submit-btn">Login</button> 
             </form>
             <div class="switch-form">
                 Don't have an account? <a href="#" onclick="alert('This feature is for demonstration only. Please use the Order button for shopping.')">Sign Up</a>
@@ -98,7 +51,6 @@
         function handleLogin() {
             // This function simulates a successful login without using a database.
             
-            // Get the values from the form fields
             const emailInput = document.getElementById('email').value;
             const passwordInput = document.getElementById('password').value;
 
