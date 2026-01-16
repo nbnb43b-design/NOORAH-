@@ -3,140 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOORAH - Fashion Collection</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    
+    <title>NOORAH | Premium Fashion Saudi Arabia</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* CSS styles remain the same for the black theme and layout */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #000000; color: #ffffff; }
-        .container { width: 95%; max-width: 1200px; margin: auto; padding: 20px 0; }
-        header { background-color: #000000; padding: 20px 0; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 90%; max-width: 1200px; margin: auto; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.5em; letter-spacing: 2px; color: #ffffff; text-decoration: none; position: absolute; left: 50%; transform: translateX(-50%); }
-        .menu-icon, .cart-icon { color: #ffffff; text-decoration: none; font-size: 20px; }
-        .menu-icon { font-size: 24px; cursor: pointer; }
-        .hero { text-align: center; padding: 80px 20px; margin-bottom: 50px; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4em; margin: 0; line-height: 1.2; font-weight: 400; }
-        .hero p { font-size: 1.8em; letter-spacing: 1px; margin-bottom: 5px; font-weight: 300; color: #ccc; }
-        .collage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; max-width: 800px; margin: 0 auto 80px auto; }
-        .collage-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .collage-item:nth-child(1) { grid-row: span 2; }
-        h2 { text-align: center; margin-bottom: 30px; font-size: 2em; font-weight: 400; font-family: 'Playfair Display', serif; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .product-card { background: #1a1a1a; border: 1px solid #333; border-radius: 4px; overflow: hidden; text-align: center; transition: box-shadow 0.3s; }
-        .product-card img { width: 100%; height: 350px; object-fit: cover; display: block; }
-        .product-info { padding: 15px; }
-        .brand { color: #aaa; font-size: 0.9em; margin-bottom: 5px; }
-        .price { color: #2ecc71; font-size: 1.4em; margin: 10px 0; font-weight: 600; }
-        .buy-btn { display: block; background-color: #ffffff; color: #000000; padding: 10px; text-decoration: none; border-radius: 3px; margin-top: 10px; font-weight: 600; transition: background-color 0.3s; border: none; }
-        footer { background-color: #1a1a1a; color: white; padding: 40px 0; margin-top: 40px; }
-        .footer-content { width: 90%; max-width: 1200px; margin: auto; display: flex; justify-content: space-around; flex-wrap: wrap; }
-        footer h4 { font-size: 1.1em; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 15px; }
-        footer a { color: #ccc; text-decoration: none; display: block; margin-bottom: 5px; font-size: 0.9em; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #fff; color: #000; overflow-x: hidden; }
+        
+        /* Header */
+        header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f2f2f2; position: sticky; top: 0; background: #fff; z-index: 1000; }
+        .logo { font-size: 26px; font-weight: 900; letter-spacing: 5px; text-decoration: none; color: #000; }
+        
+        /* Hero Section */
+        .hero { height: 45vh; background: #fafafa; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 1px solid #eee; }
+        .hero h1 { font-size: 3rem; letter-spacing: 8px; font-weight: 900; }
+        .hero p { font-size: 1rem; color: #666; margin-top: 10px; text-transform: uppercase; }
+
+        /* Filter Buttons */
+        .filter-nav { text-align: center; padding: 25px 0; }
+        .f-btn { padding: 8px 20px; margin: 5px; border: 1px solid #000; background: #fff; cursor: pointer; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
+        .f-btn.active, .f-btn:hover { background: #000; color: #fff; }
+
+        /* Product Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; padding: 0 5%; margin-bottom: 60px; }
+        .p-card { border: 1px solid #f9f9f9; transition: transform 0.4s ease; background: #fff; }
+        .p-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.06); }
+        .p-card img { width: 100%; height: 320px; object-fit: cover; }
+        
+        .p-details { padding: 15px; text-align: center; }
+        .p-name { font-size: 14px; color: #444; margin-bottom: 5px; }
+        .price { font-size: 17px; font-weight: 800; color: #000; }
+        
+        .buy-btn { display: block; width: 100%; padding: 12px; background: #000; color: #fff; text-decoration: none; font-weight: 700; font-size: 14px; margin-top: 12px; border-radius: 2px; }
+
+        footer { background: #000; color: #fff; text-align: center; padding: 40px 0; font-size: 12px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
-            <a href="#" class="menu-icon">&#9776;</a> 
-            <a href="#" class="logo">NOORAH</a>
-            <a href="./login.html" class="cart-icon">👤Account</a>
-        </div>
+        <a href="#" class="logo">NOORAH</a>
+        <nav>
+            <button class="f-btn" onclick="window.location.href='order.html'">My Orders</button>
+        </nav>
     </header>
 
-    <div class="hero">
-        <p>F/W</p>
-        <h1>Collection</h1>
+    <section class="hero" data-aos="fade-down">
+        <h1>NOORAH</h1>
+        <p>Premium Fashion for Saudi Arabia</p>
+    </section>
+
+    <div class="filter-nav" data-aos="fade-up">
+        <button class="f-btn active" onclick="filterData('all')">All</button>
+        <button class="f-btn" onclick="filterData('men')">Men</button>
+        <button class="f-btn" onclick="filterData('women')">Women</button>
     </div>
 
-    <div class="container">
-        
-        <div class="collage-grid">
-            <div class="collage-item">
-                <img src="./collage1.jpg" alt="Minimalist Model">
-            </div>
-            <div class="collage-item">
-                <img src="./collage2.jpg" alt="Product Detail Shot">
-            </div>
-            <div class="collage-item">
-                <img src="./collage3.jpg" alt="Model with Bag">
+    <div class="grid">
+        <div class="p-card men" data-aos="fade-up">
+            <img src="shoe.jpg" alt="Shoe">
+            <div class="p-details">
+                <div class="p-name">Men's Classic Sneaker</div>
+                <div class="price">180 SAR</div>
+                <a href="order.html" class="buy-btn">ORDER NOW</a>
             </div>
         </div>
-        
-        <hr style="border-color: #333; margin-top: 40px; margin-bottom: 40px;">
 
-        <h2>Our Special Collection</h2>
-        
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <img src="./tshirt.jpg" alt="Black T-shirt">
-                <div class="product-info">
-                    <p class="brand">Premium Brand</p>
-                    <h3>Classic Cotton T-Shirt</h3>
-                    <div class="price"> 1,499</div>
-                    <a href="#" target="_blank" class="buy-btn">Order with COD</a>
-                </div>
+        <div class="p-card women" data-aos="fade-up" data-aos-delay="100">
+            <img src="handbag.jpg" alt="Handbag">
+            <div class="p-details">
+                <div class="p-name">Luxury Leather Bag</div>
+                <div class="price">120 SAR</div>
+                <a href="order.html" class="buy-btn">ORDER NOW</a>
             </div>
-
-            <div class="product-card">
-                <img src="./handbag.jpg" alt="Minimalist Handbag">
-                <div class="product-info">
-                    <p class="brand">Luxury Leather</p>
-                    <h3>Modern Handbag</h3>
-                    <div class="price"> 4,950</div>
-                    <a href="#" target="_blank" class="buy-btn">Order with COD</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="./watch.jpg" alt="Silver Watch">
-                <div class="product-info">
-                    <p class="brand">TimePiece Co.</p>
-                    <h3>Elegant Silver Watch</h3>
-                    <div class="price">7,200</div>
-                    <a href="#" target="_blank" class="buy-btn">Order with COD</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="./shoe.jpg" alt="Formal Shoe">
-                <div class="product-info">
-                    <p class="brand">Bespoke Footwear</p>
-                    <h3>Classic Formal Shoes</h3>
-                    <div class="price"> 5,800</div>
-                    <a href="#" target="_blank" class="buy-btn">Order with COD</a>
-                </div>
-            </div>
-            
         </div>
-        <hr style="border-color: #333; margin-top: 40px; margin-bottom: 40px;">
+
+        <div class="p-card men" data-aos="fade-up" data-aos-delay="200">
+            <img src="watch.jpg" alt="Watch">
+            <div class="p-details">
+                <div class="p-name">Elite Black Watch</div>
+                <div class="price">250 SAR</div>
+                <a href="order.html" class="buy-btn">ORDER NOW</a>
+            </div>
+        </div>
+
+        <div class="p-card women" data-aos="fade-up" data-aos-delay="300">
+            <img src="tshirt.jpg" alt="T-shirt">
+            <div class="p-details">
+                <div class="p-name">Graphic Cotton Tee</div>
+                <div class="price">50 SAR</div>
+                <a href="order.html" class="buy-btn">ORDER NOW</a>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <div class="footer-content">
-            <div>
-                <h4>Our Store</h4>
-                <a href="#">About Us</a>
-                <a href="#">Terms & Conditions</a>
-            </div>
-            <div>
-                <h4>Customer Service</h4>
-                <a href="#">Contact Us</a>
-                <a href="#">Delivery & COD</a>
-            </div>
-            <div>
-                <h4>Social Media</h4>
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 20px; font-size: 0.8em; color: #777;">
-            <p>&copy; 2025 NOORAH. All Rights Reserved.</p>
-        </div>
+        <p>&copy; 2026 NOORAH FASHION. ALL RIGHTS RESERVED.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        function filterData(cat) {
+            const items = document.querySelectorAll('.p-card');
+            items.forEach(el => {
+                if (cat === 'all' || el.classList.contains(cat)) {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+            // Button Style Change
+            document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
