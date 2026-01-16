@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - Norah Fashion</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .order-container { max-width: 400px; background: white; padding: 20px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #000; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #333; }
+    </style>
+</head>
+<body>
+
+<div class="order-container">
+    <h2>অর্ডার ফর্ম</h2>
+    <form id="orderForm">
+        <input type="text" name="Name" placeholder="আপনার নাম" required>
+        <input type="text" name="Phone" placeholder="মোবাইল নম্বর" required>
+        <textarea name="Address" placeholder="পুরো ঠিকানা" rows="3" required></textarea>
+        
+        <label>পণ্য নির্বাচন করুন:</label>
+        <select name="Product">
+            <option value="Handbag">Handbag</option>
+            <option value="Shoe">Shoe</option>
+            <option value="Watch">Watch</option>
+            <option value="T-shirt">T-shirt</option>
+        </select>
+
+        <button type="submit" id="submitBtn">অর্ডার নিশ্চিত করুন</button>
+    </form>
+</div>
+
+<script>
+    // এখানে আপনার গুগল অ্যাপস স্ক্রিপ্ট লিঙ্কটি বসাবেন
+    const scriptURL = 'আপনার_WEB_APP_URL_এখানে_বসান';
+    const form = document.getElementById('orderForm');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        document.getElementById('submitBtn').innerText = 'অর্ডার পাঠানো হচ্ছে...';
+        document.getElementById('submitBtn').disabled = true;
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert('ধন্যবাদ মীম ভাই! আপনার অর্ডারটি গুগল শিটে জমা হয়েছে।');
+                form.reset();
+                document.getElementById('submitBtn').innerText = 'অর্ডার নিশ্চিত করুন';
+                document.getElementById('submitBtn').disabled = false;
+            })
+            .catch(error => {
+                alert('উফ! কিছু একটা সমস্যা হয়েছে।');
+                console.error('Error!', error.message);
+                document.getElementById('submitBtn').disabled = false;
+            });
+    });
+</script>
+
+</body>
+</html>
